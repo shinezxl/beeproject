@@ -13,6 +13,7 @@ public class MainControlled {
     private BeeUser beeUser;
     @RequestMapping("test")
     public String test(@RequestParam("name") String name){
+        System.out.println(name);
         name=beeUser.getName();
         return "your name is "+name;
     }
