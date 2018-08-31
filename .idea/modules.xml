@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../beeproject/bee-user/bee-user.iml" filepath="$PROJECT_DIR$/../beeproject/bee-user/bee-user.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../beeproject/bee-user/bee-user-api/bee-user-api.iml" filepath="$PROJECT_DIR$/../beeproject/bee-user/bee-user-api/bee-user-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../beeproject/bee-user/bee-user-provider/bee-user-provider.iml" filepath="$PROJECT_DIR$/../beeproject/bee-user/bee-user-provider/bee-user-provider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../beeproject/bee-user/bee-user-web/bee-user-web.iml" filepath="$PROJECT_DIR$/../beeproject/bee-user/bee-user-web/bee-user-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/beeproject.iml" filepath="$PROJECT_DIR$/beeproject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../beeproject/demo/demo.iml" filepath="$PROJECT_DIR$/../beeproject/demo/demo.iml" />
+    </modules>
+  </component>
+</project>

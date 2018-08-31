@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="bee-user-web:war exploded">
+    <output-path>$PROJECT_DIR$/../beeproject/bee-user/bee-user-web/target/bee-user-web-1.0-SNAPSHOT</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="bee-user-web" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/../beeproject/bee-user/bee-user-web/target/bee-user-web-1.0-SNAPSHOT/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="bee-user-web/web/Web" />
+    </root>
+  </artifact>
+</component>
