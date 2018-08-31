@@ -13,11 +13,11 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="bee-user" target="1.8" />
-      <module name="bee-user-api" target="1.8" />
-      <module name="bee-user-provider" target="1.8" />
-      <module name="bee-user-web" target="1.8" />
-      <module name="beeproject" target="1.8" />
+      <module name="bee-user" target="1.5" />
+      <module name="bee-user-api" target="1.5" />
+      <module name="bee-user-provider" target="1.5" />
+      <module name="bee-user-web" target="1.5" />
+      <module name="beeproject" target="1.5" />
       <module name="demo" target="1.8" />
     </bytecodeTargetLevel>
   </component>
