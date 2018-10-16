@@ -47,6 +47,13 @@
 			<scope>test</scope>
 		</dependency>
 
+		<!--jsonobject的jar包-->
+		<dependency>
+			<groupId>com.bs</groupId>
+			<artifactId>bs-Api</artifactId>
+			<version>0.0.1</version>
+		</dependency>
+
 		<!--<dependency>
 			<groupId>javax.el</groupId>
 			<artifactId>javax.el-api</artifactId>
