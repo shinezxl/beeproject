@@ -3,7 +3,7 @@ package com.bee.util;
 import java.security.MessageDigest;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
+//新增MD5加密工具类
 public class Md5 {
 
     public static String encoderMd5(String string) {
