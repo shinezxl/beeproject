@@ -79,7 +79,7 @@ public class TestDemo {
         System.out.println(cashLoanRate111.equals(null));*/
 
 
-        String aaa1="abca";
+        /*String aaa1="abca";
         System.out.println(aaa1.replaceAll("a","d"));
 
         File file = new File("E://test.txt");
@@ -88,9 +88,11 @@ public class TestDemo {
         if(!file1.exists()){
 
             file1.mkdir();//创建目录
-        }
+        }*/
 
 
+        String[] split = "".split(",");
+        System.out.println(split);
 
     }
 
