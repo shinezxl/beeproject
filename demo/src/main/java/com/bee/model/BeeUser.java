@@ -7,6 +7,7 @@ public class BeeUser implements Runnable{
     private String idCard;
     private Date date;
     private String testNullStr;
+    private int age;
 
     public String getName() {
         return name;
@@ -38,6 +39,14 @@ public class BeeUser implements Runnable{
 
     public void setTestNullStr(String testNullStr) {
         this.testNullStr = testNullStr;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
     }
 
     @Override

@@ -91,8 +91,35 @@ public class TestDemo {
         }*/
 
 
-        String[] split = "".split(",");
+        /*String[] split = "".split(",");
         System.out.println(split);
+
+        String appStatusList = "2130,2101,1020,1021,2110";
+        if (!appStatusList.contains("2111")) {
+            System.out.println(2333);
+        }else {
+            System.out.println(6666);
+        }*/
+
+
+        /*String a = "天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天";
+        System.out.println(a.length());*/
+
+        BeeUser beeUser = new BeeUser();
+        int a=1;
+        Integer abc =1 ;
+        String name = "zxl";
+        beeUser.setName(name);
+        name = "zxl nb";
+        System.out.println(beeUser.getName());//zxl
+
+        beeUser.setAge(a);
+        a = 2;
+        System.out.println(beeUser.getAge());//1
+
+
+
+
 
     }
 
