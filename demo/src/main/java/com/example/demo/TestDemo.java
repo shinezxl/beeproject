@@ -2,18 +2,17 @@ package com.example.demo;
 
 import ch.qos.logback.core.net.SyslogOutputStream;
 import com.bee.model.BeeUser;
+import net.sf.json.JSONArray;
 
 import java.io.File;
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Vector;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 public class TestDemo {
     private static DecimalFormat df   = new DecimalFormat("#0.00");
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception{
 
         DecimalFormat    df   = new DecimalFormat("#0.00");
 
@@ -105,7 +104,7 @@ public class TestDemo {
         /*String a = "天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天天";
         System.out.println(a.length());*/
 
-        BeeUser beeUser = new BeeUser();
+       /* BeeUser beeUser = new BeeUser();
         int a=1;
         Integer abc =1 ;
         String name = "zxl";
@@ -115,10 +114,45 @@ public class TestDemo {
 
         beeUser.setAge(a);
         a = 2;
-        System.out.println(beeUser.getAge());//1
+        System.out.println(beeUser.getAge());//1*/
 
+       /* Date date = new Date();
+        SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd HH:ss:mm");
 
+        System.out.println(sdf1.format(date));
+        System.out.println(sdf2.format(date));//分与秒 位置调换了*/
 
+      /* String fileType = "idnoBack";
+        switch (fileType) {
+            case "idnoFront":
+            case "1020":
+                System.out.println("1020");
+                break;
+            case "idnoBack":
+            case "1021":
+                System.out.println("1021");
+                break;
+            case "idnoHand":
+                System.out.println("idnoHand");
+                break;
+            default:
+                System.out.println("6666666666");
+                break;
+        }*/
+
+        /*JSONArray jsonArray = JSONArray.fromObject("");//报错，必须是[]
+        System.out.println(jsonArray);*/
+
+        /*SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日");
+        System.out.println(sdf.format(new Date()));*/
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Date endDate = sdf.parse("2018-09-12 12:12:12");
+        Date nowDate = new Date();
+        if (nowDate.compareTo(endDate)<=0){
+            System.out.println("小");
+        }
 
 
     }
