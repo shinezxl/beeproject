@@ -23,4 +23,17 @@ public class LabelCrudController {
          labelService.updateLabel(nId,labelContext);
          return "succeed";
     }
+
+    /**
+     * 事务测试
+     * @param nId
+     * @param labelContext
+     * @return
+     */
+    @RequestMapping("updateLabelTrans")
+    public String updateLabelTrans(@Param("nId") String nId, @Param("labelContext") String labelContext){
+        labelService.updateLabelTrans(nId,labelContext);
+        return "succeed";
+    }
+
 }

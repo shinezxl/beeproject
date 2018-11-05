@@ -96,11 +96,11 @@
 		</dependency>
 
 		<!--引入api jar包   编译的时候一直找不到该jar包service，失败 -->
-		<dependency>
+		<!--<dependency>
 			<groupId>china.bee</groupId>
 			<artifactId>demo-api</artifactId>
 			<version>2.0-SNAPSHOT</version>
-		</dependency>
+		</dependency>-->
 
 
 		<!--这个jar原本放到了plugin中，但dao层引用不了，放到这个位置就好了，具体原因待查 -->
