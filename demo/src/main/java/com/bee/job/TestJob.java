@@ -12,9 +12,9 @@ import java.util.Date;
 public class TestJob {
 
     /**
-     * 定时任务，每天晚上1点删除数据表t_tempClob中的所有记录
+     * 定时任务 时间表达式https://blog.csdn.net/qianqf220/article/details/79448807
      */
-    @Scheduled(cron= "*/5 * * * * ?")
+    @Scheduled(cron= "0 05 21 ? * *")
     public void testJob(){
         System.out.println("---------job start---------");
         try {
