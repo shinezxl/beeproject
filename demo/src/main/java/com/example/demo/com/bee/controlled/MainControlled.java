@@ -1,5 +1,6 @@
 package com.example.demo.com.bee.controlled;
 
+import com.bee.exceloper.TaskList;
 import com.bee.model.BeeUser;
 import com.bee.util.DateUtil;
 import com.bee.util.ExcelUtil;
@@ -16,6 +17,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("main")
@@ -105,6 +107,39 @@ public class MainControlled {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
+    }
+
+    @RequestMapping(value = "exportTask", method = RequestMethod.GET)
+    public void exportTask(HttpServletResponse response) {
+        //获取数据
+        try {
+            List<Map<String, String>> taskList = TaskList.getTaskList();
+
+            //excel标题
+            String[] title = {"名称", "年龄"};
+
+            //excel文件名
+            String fileName = "taskList" + System.currentTimeMillis() + ".xls";
+
+            //sheet名
+            String sheetName = "taskList";
+
+            String[][] content = new String[taskList.size()][title.length];
+            for (int i = 0; i < taskList.size(); i++) {
+                Map<String, String> obj = taskList.get(i);
+                content[i][0] = obj.get("detailContext");
+                content[i][1] = obj.get("detailContextEmp");
+            }
+
+            //创建HSSFWorkbook
+            HSSFWorkbook wb = ExcelUtil.getHSSFWorkbook(sheetName, title, content, null);
+
+            //响应到客户端
+            outputPage(response,fileName,wb);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
 

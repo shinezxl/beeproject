@@ -147,12 +147,12 @@ public class TestDemo {
         /*SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日");
         System.out.println(sdf.format(new Date()));*/
 
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        /*SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Date endDate = sdf.parse("2018-09-12 12:12:12");
         Date nowDate = new Date();
         if (nowDate.compareTo(endDate)<=0){
             System.out.println("小");
-        }
+        }*/
 
 
     }
