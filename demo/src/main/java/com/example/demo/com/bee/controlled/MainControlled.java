@@ -116,7 +116,7 @@ public class MainControlled {
             List<Map<String, String>> taskList = TaskList.getTaskList();
 
             //excel标题
-            String[] title = {"名称", "年龄"};
+            String[] title = {"工作模块","名称", "年龄"};
 
             //excel文件名
             String fileName = "taskList" + System.currentTimeMillis() + ".xls";
@@ -127,8 +127,17 @@ public class MainControlled {
             String[][] content = new String[taskList.size()][title.length];
             for (int i = 0; i < taskList.size(); i++) {
                 Map<String, String> obj = taskList.get(i);
-                content[i][0] = obj.get("detailContext");
-                content[i][1] = obj.get("detailContextEmp");
+                content[i][1] = obj.get("detailContext");
+                content[i][2] = obj.get("detailContextEmp");
+                if (content[i][2].contains("重构")){
+                    content[i][0] = "C端APP、B端APP、geexPro重构";
+                }
+                if (content[i][2].contains("门店")){
+                    content[i][0] = "运营管理-门店管理";
+                }
+                if (content[i][2].contains("商户后台") || content[i][2].contains("对账后台")){
+                    content[i][0] = "商户对账后台";
+                }
             }
 
             //创建HSSFWorkbook

@@ -1,5 +1,7 @@
 package com.bee.exceloper;
 
+import org.apache.commons.lang.StringUtils;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -11,11 +13,12 @@ import java.util.regex.Pattern;
 public class TaskList {
 
     public static void main(String[] args) throws Exception{
-        getTaskList();
+        getTaskDel();
+//        getTaskList();
     }
 
     public static List<Map<String, String>> getTaskList() throws Exception{
-        String path = "E:/taskList.txt";
+        String path = "E:/taskList3.txt";
         List<String> fileContext = readFile(path);
         List<Map<String, String>> list = new ArrayList<Map<String, String>>();
         List<Map<String, String>> excelList = new ArrayList<Map<String, String>>();
@@ -23,9 +26,9 @@ public class TaskList {
             Map<String, String> map = new HashMap<>();
             String contextLineNew = spaceParse(contextLine);
             String[] split = contextLineNew.split(" ");
-            /*if (split.length!=13){
+            if (split.length!=13){
                 System.out.println(contextLineNew);
-            }*/
+            }
             if ("已完成".equals(split[split.length-1])){
                 map.put("UpDate",getNumStr(split[3]));//上线时间
                 map.put("demandName",split[4]);//需求名
@@ -35,6 +38,10 @@ public class TaskList {
 
         }
 
+        String[] taskDel = getTaskDel();
+
+
+        int i =0;
         for (Map<String, String> obj : list) {
             Map<String, String> map = new HashMap<>();
             //具体内容（包含计划完成时间、考核标准等）
@@ -56,17 +63,51 @@ public class TaskList {
             detailContextEmp.append("\n");
             detailContextEmp.append("具体过程：");
             detailContextEmp.append("\n");
-            // TODO: 2018/11/7
-            detailContextEmp.append("");
+            detailContextEmp.append(taskDel[i]);
             detailContextEmp.append("\n");
             detailContextEmp.append("结果：测试通过并上线");
             map.put("detailContextEmp",detailContextEmp.toString());//达成具体情况
             excelList.add(map);
+            i++;
         }
         return excelList;
 
     }
 
+
+
+    public static String[] getTaskDel(){
+        String fileName = "E:/taskList2.txt";
+        String array[]  = new String[68];
+        int index = 0;
+        try {
+            File f = new File(fileName);
+            if (f.isFile() && f.exists()) {
+                InputStreamReader read = new InputStreamReader(
+                        new FileInputStream(f), "utf-8");
+                BufferedReader reader = new BufferedReader(read);
+                String line;
+                while ((line = reader.readLine()) != null) {
+                    if (line.trim().equals("")){
+                        index ++;
+                    }else {
+
+                        String str = array[index];
+                        if (!StringUtils.isEmpty(str)){
+                            str = str + "\n";
+                        }
+                        String str1 = str +line;
+                        array[index] = str1;
+                    }
+                }
+                read.close();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return array;
+    }
 
     /**
      * 获取txt文件内容并按行放入list中(这个方法tomcat启动测试乱码)
