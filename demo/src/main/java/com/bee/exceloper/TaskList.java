@@ -30,7 +30,7 @@ public class TaskList {
                 System.out.println(contextLineNew);
             }
             if ("已完成".equals(split[split.length-1])){
-                map.put("UpDate",getNumStr(split[3]));//上线时间
+                map.put("upDate",getNumStr(split[3]));//上线时间
                 map.put("demandName",split[4]);//需求名
                 map.put("finishDate",split[11]);//完成时间
                 list.add(map);
@@ -50,7 +50,7 @@ public class TaskList {
             detailContext.append(obj.get("demandName"));
             detailContext.append("\n");
             detailContext.append("上线时间：");
-            detailContext.append(obj.get("UpDate"));
+            detailContext.append(obj.get("upDate"));
             detailContext.append("\n");
             detailContext.append("考核标准：测试通过并上线");
             map.put("detailContext",detailContext.toString());//具体内容
@@ -91,7 +91,6 @@ public class TaskList {
                     if (line.trim().equals("")){
                         index ++;
                     }else {
-
                         String str = array[index];
                         if (!StringUtils.isEmpty(str)){
                             str = str + "\n";
@@ -161,7 +160,7 @@ public class TaskList {
     }
 
     /**
-     * 将对空格转单个空格
+     * 将字符串中的中文过滤
      */
     public static String getNumStr(String oldStr){
         String newStr = Pattern.compile("[^0-9]").matcher(oldStr).replaceAll("").trim();
