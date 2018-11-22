@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * 根据list中的object属性进行排序
  */
-public class Test1 {
+public class ObjectDateSort {
 
     public static void main(String[] args) {
         objectDateSort();
@@ -53,7 +53,7 @@ public class Test1 {
         list.add(beeUser);
 
         beeUser = new BeeUser();
-        dateStr ="2018-01-04";
+        dateStr ="2018-01-03";
         beeUser.setDate(DateUtil.strToDate(dateStr,"yyyy-MM-dd"));
         beeUser.setName(dateStr);
         beeUser.setAge(Integer.valueOf(dateStr.substring(dateStr.length()-1),dateStr.length()));
@@ -89,7 +89,7 @@ public class Test1 {
             }
         });
 
-        System.out.println("------------结束-----------");
+        System.out.println("------------结束------------");
 
 
     }

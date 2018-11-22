@@ -72,6 +72,23 @@ public class TestDemo {
         Double bb = 1.23d;
         System.out.println(aa-bb==0);
 
+        int c1= 86;
+        int c2= 87;
+        int c3= 88;
+        char cc1 = (char) c1;
+        char cc2 = (char) c2;
+        char cc3 = (char) c3;
+
+        char cc4 = 'A';
+        char cc5 = 'a';
+        int c4 = (int) cc4;
+        int c5 = (int) cc5;
+        System.out.println(cc1);
+        System.out.println(cc2);
+        System.out.println(cc3);
+        System.out.println(c4);
+        System.out.println(c5);
+
 
        /* BigDecimal cashLoanRate111 = null;//保证金放款比例
 //        System.out.println(null!=cashLoanRate111);
