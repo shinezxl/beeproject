@@ -170,8 +170,14 @@ public class TestDemo {
         if (nowDate.compareTo(endDate)<=0){
             System.out.println("小");
         }*/
-
-
+        String decimal2 = null;
+        String decimal3 = null;
+        BigDecimal decimal1 = BigDecimal.valueOf(33);
+        System.out.println(decimal1);
+        decimal2 = String.valueOf(decimal1.setScale(2, BigDecimal.ROUND_HALF_UP));
+        System.out.println(decimal2);
+        decimal3 = decimal1.toString();
+        System.out.println(decimal3);
     }
 
     /**
