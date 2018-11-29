@@ -53,4 +53,15 @@ public class BeeUser implements Runnable{
     public void run() {
 
     }
+
+    @Override
+    public String toString() {
+        return "BeeUser{" +
+                "name='" + name + '\'' +
+                ", idCard='" + idCard + '\'' +
+                ", date=" + date +
+                ", testNullStr='" + testNullStr + '\'' +
+                ", age=" + age +
+                '}';
+    }
 }

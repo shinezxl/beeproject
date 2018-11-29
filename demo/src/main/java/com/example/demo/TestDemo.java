@@ -2,7 +2,9 @@ package com.example.demo;
 
 import ch.qos.logback.core.net.SyslogOutputStream;
 import com.bee.model.BeeUser;
+import com.bee.util.DateUtil;
 import net.sf.json.JSONArray;
+import org.apache.commons.lang.time.DateUtils;
 
 import java.io.File;
 import java.math.BigDecimal;
@@ -12,6 +14,7 @@ import java.util.*;
 
 public class TestDemo {
     private static DecimalFormat df   = new DecimalFormat("#0.00");
+    private static final Date nowDate = new Date();
     public static void main(String[] args) throws Exception{
 
         DecimalFormat    df   = new DecimalFormat("#0.00");
@@ -170,14 +173,44 @@ public class TestDemo {
         if (nowDate.compareTo(endDate)<=0){
             System.out.println("小");
         }*/
-        String decimal2 = null;
+        /*String decimal2 = null;
         String decimal3 = null;
         BigDecimal decimal1 = BigDecimal.valueOf(33);
         System.out.println(decimal1);
         decimal2 = String.valueOf(decimal1.setScale(2, BigDecimal.ROUND_HALF_UP));
         System.out.println(decimal2);
         decimal3 = decimal1.toString();
-        System.out.println(decimal3);
+        System.out.println(decimal3);*/
+
+        /*Map<String,BeeUser> map = new HashMap<>();
+
+        BeeUser beeUser = new BeeUser();
+        beeUser.setAge(233);
+        beeUser.setName("love");
+        beeUser.setDate(new Date());
+        map.put(beeUser.getName(),beeUser);
+        BeeUser beeUser1 = new BeeUser();
+        beeUser1.setAge(666);
+        beeUser1.setName("you");
+        beeUser1.setDate(new Date());
+        map.put(beeUser1.getName(),beeUser1);
+
+        BeeUser remove = map.remove(beeUser1.getName());
+        System.out.println(remove.toString());*/
+        String s00 = DateUtil.dateToStr(new Date(), "HH:mm:ss");
+        System.out.println(s00);
+        Thread.sleep(1000*6);
+        String s0 = DateUtil.dateToStr(new Date(), "HH:mm:ss");
+        System.out.println(s0);
+        String s1 = DateUtil.dateToStr(nowDate, "HH:mm:ss");
+        System.out.println(s1);
+        Thread.sleep(1000*6);
+        String s2 = DateUtil.dateToStr(nowDate, "HH:mm:ss");
+        System.out.println(s2);
+        String s3 = DateUtil.dateToStr(new Date(), "HH:mm:ss");
+        System.out.println(s3);
+
+
     }
 
     /**
