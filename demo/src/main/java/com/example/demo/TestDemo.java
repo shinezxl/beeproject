@@ -2,9 +2,14 @@ package com.example.demo;
 
 import ch.qos.logback.core.net.SyslogOutputStream;
 import com.bee.model.BeeUser;
+import com.bee.model.CashFinalStatusEnum;
 import com.bee.util.DateUtil;
+import com.bee.util.JavaBeanUtil;
 import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
+import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.time.DateUtils;
+import org.springframework.beans.BeanUtils;
 
 import java.io.File;
 import java.math.BigDecimal;
@@ -197,7 +202,7 @@ public class TestDemo {
 
         BeeUser remove = map.remove(beeUser1.getName());
         System.out.println(remove.toString());*/
-        String s00 = DateUtil.dateToStr(new Date(), "HH:mm:ss");
+        /*String s00 = DateUtil.dateToStr(new Date(), "HH:mm:ss");
         System.out.println(s00);
         Thread.sleep(1000*6);
         String s0 = DateUtil.dateToStr(new Date(), "HH:mm:ss");
@@ -208,11 +213,123 @@ public class TestDemo {
         String s2 = DateUtil.dateToStr(nowDate, "HH:mm:ss");
         System.out.println(s2);
         String s3 = DateUtil.dateToStr(new Date(), "HH:mm:ss");
-        System.out.println(s3);
+        System.out.println(s3);*/
+
+        /*BigDecimal amount = new BigDecimal("0.00");
+        List<BigDecimal> amounts = new ArrayList();
+        amounts.add(BigDecimal.valueOf(1));
+        amounts.add(BigDecimal.valueOf(2));
+        amounts.add(BigDecimal.valueOf(3));
+        for (BigDecimal decimal : amounts) {
+            amount = amount.add(decimal).setScale(1);
+        }
+
+        System.out.println(amount);
+
+
+        List<String> lsit = null;
+        for (String s : lsit) {
+            System.out.println("--------------");
+        }*/
+
+        /*BigDecimal channelRate = new BigDecimal("0.00");
+        BigDecimal bondAmount = BigDecimal.ZERO;
+        if (channelRate.compareTo(bondAmount)==0){
+            System.out.println("结束");
+        }
+
+        BigDecimal decimal = bondAmount.divide(channelRate).setScale(2);
+        System.out.println(decimal);*/
+
+        /*List<String> list1 = new ArrayList<String>();
+        List<String> list2 = new ArrayList<String>();
+        //给list1赋值
+        list1.add("测");
+        list1.add("试");
+        list1.add("一");
+        list1.add("下");
+        //给list2赋值
+        *//*list2.add("合");
+        list2.add("并");
+        list2.add("列");
+        list2.add("表");*//*
+        //将list1.list2合并
+        list1.addAll(list2);
+        //循环输出list1 看看结果
+        for (String s : list1) {
+            System.out.print(s);
+        }*/
+/*
+        System.out.println("--------");
+        System.out.println(StringUtils.isBlank("a b"));
+        System.out.println(StringUtils.isBlank(null));*/
+        Date date = new Date();
+
+        BeeUser user1 = new BeeUser();
+        BeeUser user2 = new BeeUser();
+        String name ="张三";
+        user1.setName(name);
+        user1.setDate(date);
+        user1.setIdCard("111");
+        user1.setTestValue(BigDecimal.ZERO);
+        Thread.sleep(100);
+        name ="李四";
+        user2.setName(name);
+        user2.setDate(new Date());
+        user2.setIdCard("222");
+        user2.setTestNullStr("666");
+        user1.setTestValue(BigDecimal.ONE);
+
+        boolean equals = user1.equals(user2);
+        boolean b = user1 == user2;
+        System.out.println("结束");
+
+//        BeanUtils.copyProperties(user1,user2);//一模一样，空值也是覆盖
+//        JavaBeanUtil.setFieldValue(user1,"testNullStr",user2,"testNullStr");//不知道干嘛的
+       /* JavaBeanUtil.convertBean2Bean(user1,user2);
+        System.out.println(JSONObject.fromObject(user1).toString());
+        System.out.println(JSONObject.fromObject(user2).toString());*/
+        /*Random random = new Random();
+        Integer ranNum = random.nextInt(2);
+        System.out.println("int值为："+ranNum);*/
+        String str = "123456";
+        str = str.substring(0,str.length()-1);
+        System.out.println(str);
+        int ordinal = CashFinalStatusEnum.放款中.ordinal();
+        System.out.println(ordinal);
+
+        List<Map<String,Object>> list = new ArrayList<>();
+        Map<String,Object> map = new HashMap<>();
+        map.put("channelCode","11");
+        map.put("channelName","");
+        map.put("openFlag", false);
+        Map<String,Object> map2 = new HashMap<>();
+        map2.put("channelCode","22");
+        map2.put("channelName","");
+        map2.put("openFlag", false);
+        list.add(map);
+        list.add(map2);
+        String s = listToStrPartnerChannel(list);
+        System.out.println("数据："+s);
 
 
     }
 
+
+    private static String listToStrPartnerChannel(List<Map<String,Object>> list){
+        String str = "";
+        if (null!= list && list.size()>0){
+            for (Map<String,Object> o : list) {
+                if ((Boolean) o.get("openFlag")){
+                    str = str + o.get("channelCode").toString() +",";
+                }
+            }
+            if (str.length()>0){
+                str = str.substring(0,str.length()-1);
+            }
+        }
+        return str;
+    }
     /**
      * * 两个Double数相加 *
      *

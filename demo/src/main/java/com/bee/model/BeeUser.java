@@ -1,13 +1,18 @@
 package com.bee.model;
 
+import net.sf.json.JSONObject;
+
+import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 
-public class BeeUser implements Runnable{
+public class BeeUser implements Runnable,Serializable{
     private String name;
     private String idCard;
     private Date date;
     private String testNullStr;
     private int age;
+    private BigDecimal testValue;
 
     public String getName() {
         return name;
@@ -49,6 +54,14 @@ public class BeeUser implements Runnable{
         this.age = age;
     }
 
+    public BigDecimal getTestValue() {
+        return testValue;
+    }
+
+    public void setTestValue(BigDecimal testValue) {
+        this.testValue = testValue;
+    }
+
     @Override
     public void run() {
 
@@ -56,12 +69,21 @@ public class BeeUser implements Runnable{
 
     @Override
     public String toString() {
-        return "BeeUser{" +
-                "name='" + name + '\'' +
-                ", idCard='" + idCard + '\'' +
-                ", date=" + date +
-                ", testNullStr='" + testNullStr + '\'' +
-                ", age=" + age +
-                '}';
+        return JSONObject.fromObject(this).toString();
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        BeeUser beeUser = (BeeUser) o;
+
+        if (age != beeUser.age) return false;
+        if (name != null ? !name.equals(beeUser.name) : beeUser.name != null) return false;
+        if (idCard != null ? !idCard.equals(beeUser.idCard) : beeUser.idCard != null) return false;
+        if (date != null ? !date.equals(beeUser.date) : beeUser.date != null) return false;
+        return testNullStr != null ? testNullStr.equals(beeUser.testNullStr) : beeUser.testNullStr == null;
+    }
+
 }
