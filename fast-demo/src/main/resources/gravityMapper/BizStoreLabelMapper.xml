@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.dao.BizStoreLabelMapper" >
+  <resultMap id="BaseResultMap" type="com.example.dao.model.BizStoreLabel" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="N_ID" property="nId" jdbcType="INTEGER" />
+    <result column="LABEL_CONTEXT" property="labelContext" jdbcType="VARCHAR" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="CREATE_USER" property="createUser" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    N_ID, LABEL_CONTEXT, CREATE_TIME, CREATE_USER
+  </sql>
+
+  <select id="selectAllBySql" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List"/>
+    FROM
+    BIZ_STORE_LABEL
+    WHERE 1=1
+  </select>
+</mapper>
