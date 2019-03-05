@@ -11,13 +11,20 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
+import java.net.URL;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipOutputStream;
 
 @RestController
 @RequestMapping("main")
@@ -151,6 +158,45 @@ public class MainControlled {
 
     }
 
+    /**
+     * 多张图片打成压缩包下载
+     * https://www.cnblogs.com/Jeremy2001/p/6858106.html
+     * @param request
+     * @param response
+     * @return
+     */
+    @RequestMapping("/image")
+    public String test(HttpServletRequest request, HttpServletResponse response){
+        try {
+            String downloadFilename = "中文.zip";//文件的名称
+            downloadFilename = URLEncoder.encode(downloadFilename, "UTF-8");//转换中文否则可能会产生乱码
+            response.setContentType("application/octet-stream");// 指明response的返回对象是文件流
+            response.setHeader("Content-Disposition", "attachment;filename=" + downloadFilename);// 设置在下载框默认显示的文件名
+            ZipOutputStream zos = new ZipOutputStream(response.getOutputStream());
+            String[] files = new String[]{"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1551788265145&di=12ff8e0cbaad7da0dc42118127d79e70&imgtype=0&src=http%3A%2F%2Fcdnq.duitang.com%2Fuploads%2Fblog%2F201405%2F17%2F20140517214232_kUAZ4.thumb.700_0.jpeg","https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3346584960,552452483&fm=26&gp=0.jpg"};
+            for (int i=0;i<files.length;i++) {
+                URL url = new URL(files[i]);
+                zos.putNextEntry(new ZipEntry(i+".jpg"));
+                //FileInputStream fis = new FileInputStream(new File(files[i]));
+                InputStream fis = url.openConnection().getInputStream();
+                byte[] buffer = new byte[1024];
+                int r = 0;
+                while ((r = fis.read(buffer)) != -1) {
+                    zos.write(buffer, 0, r);
+                }
+                fis.close();
+            }
+            zos.flush();
+            zos.close();
+        } catch (UnsupportedEncodingException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return "success";
+    }
 
 
 }
