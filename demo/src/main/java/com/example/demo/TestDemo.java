@@ -313,6 +313,27 @@ public class TestDemo {
         System.out.println("数据："+s);
 
 
+        /*Date date1=new Date();
+        System.out.println(System.currentTimeMillis());
+        System.out.println(date1.getTime());
+        String uuidSeed = UUID.randomUUID().toString()+ date1.getTime();
+        System.out.println(uuidSeed);
+        String orderId = UUID.nameUUIDFromBytes(uuidSeed.getBytes()).toString();
+        System.out.println(orderId);
+
+        JSONObject.fromObject("");*/
+
+
+
+        BigDecimal decimal1 = new BigDecimal("10000");
+        BigDecimal decimal = new BigDecimal(0.15);
+        BigDecimal decimal2 = decimal1.divide(decimal,2,BigDecimal.ROUND_HALF_UP);
+        System.out.println(decimal2);
+        BigDecimal storeChannelAmount = new BigDecimal("10000");
+        BigDecimal channelRate = new BigDecimal(15);
+
+        BigDecimal decimal3 = storeChannelAmount.divide(channelRate.divide(new BigDecimal("100")),2,BigDecimal.ROUND_HALF_UP);
+        System.out.println(decimal3);
     }
 
 

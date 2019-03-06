@@ -4,6 +4,8 @@
     <file type="web" url="file://$PROJECT_DIR$/bee-user/bee-user-provider" />
     <file type="web" url="file://$PROJECT_DIR$/bee-user/bee-user-web" />
     <file type="web" url="file://$PROJECT_DIR$/demo" />
+    <file type="web" url="file://$PROJECT_DIR$/fast-demo" />
+    <file type="web" url="file://$PROJECT_DIR$/pay" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
@@ -11,6 +13,7 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/demo/pom.xml" />
         <option value="$PROJECT_DIR$/demo-api/pom.xml" />
+        <option value="$PROJECT_DIR$/fast-demo/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

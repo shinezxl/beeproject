@@ -11,6 +11,7 @@
         <module name="bee-user-web" />
         <module name="demo" />
         <module name="demo-api" />
+        <module name="fast-demo" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -21,6 +22,9 @@
       <module name="beeproject" target="1.8" />
       <module name="demo" target="1.8" />
       <module name="demo-api" target="1.8" />
+      <module name="fast-demo" target="1.8" />
+      <module name="fastdemo" target="1.8" />
+      <module name="pay" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

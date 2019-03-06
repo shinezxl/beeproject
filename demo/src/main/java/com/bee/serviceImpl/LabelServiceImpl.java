@@ -14,6 +14,7 @@ public class LabelServiceImpl implements LabelService {
     private BizStoreLabelMapper bizStoreLabelMapper;
     @Override
     public List queryLabel() {
+        bizStoreLabelMapper.selectAll();
         return bizStoreLabelMapper.queryLabel();
     }
 

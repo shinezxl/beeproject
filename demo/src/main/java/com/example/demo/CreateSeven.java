@@ -44,7 +44,7 @@ public class CreateSeven {
     }
 
     public static void main(String[] args) {
-        int count =10;
+        int count =3;
         for (int i = 0; i < count; i++) {
             initSeven();
         }

@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="fast-demo:war">
+    <output-path>$PROJECT_DIR$/fast-demo/target</output-path>
+    <root id="archive" name="fast-demo-2.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="fast-demo:war exploded" />
+    </root>
+  </artifact>
+</component>

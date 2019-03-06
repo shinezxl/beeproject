@@ -1,4 +1,4 @@
-package com.bee.util;
+package com.bee.learnredis;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
