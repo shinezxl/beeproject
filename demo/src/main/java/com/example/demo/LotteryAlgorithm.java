@@ -7,9 +7,9 @@ public class LotteryAlgorithm {
     //测试
     public static void main(String[] args) {
         List<Double> list = new ArrayList<>();
-        list.add(10d);
-        list.add(20d);
-        list.add(70d);
+        list.add(1d);
+        list.add(2d);
+        list.add(7d);
 
         for (int i = 0; i < 10; i++) {
             int goodsIndex = getGoodsIndex(list);
@@ -31,7 +31,7 @@ public class LotteryAlgorithm {
 
         Double randomNum = (Math.random()*sum);//[0,sum]
         System.out.println(randomNum);
-        for (int j = 0; j < area.size(); j++) {
+        for (int j = 0; j <= area.size(); j++) {
             Double currentNum = area.get(j);
             if (randomNum < currentNum){
                 return j;
