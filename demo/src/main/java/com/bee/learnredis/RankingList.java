@@ -61,7 +61,7 @@ public class RankingList {
     public void list() {
         Set<String> range = redisTemplate.opsForZSet().reverseRange(SCORE_RANK, 0, 10);
         System.out.println("获取到的排行列表:" + JSONArray.fromObject(range));
-        Set<ZSetOperations.TypedTuple<String>> rangeWithScores = redisTemplate.opsForZSet().reverseRangeWithScores(SCORE_RANK, 0, 10);
+        Set<ZSetOperations.TypedTuple<String>> rangeWithScores = redisTemplate.opsForZSet().reverseRangeWithScores(SCORE_RANK, 0, 9);
         JSONArray jsonArray = JSONArray.fromObject(rangeWithScores);
         List<RankModel> list = JSONArray.toList(jsonArray, new RankModel(), new JsonConfig());
         System.out.println("获取到的排行和分数列表:" + JSONArray.fromObject(list).toString());
